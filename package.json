@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "dependencies": {
       "bignumber.js": "9.1.2",
-      "web3": "4.3.0"
+      "web3": "4.3.0",
+      "fs": "0.0.1-security"
     },
     "scripts": {
       "start": "node send.js"
