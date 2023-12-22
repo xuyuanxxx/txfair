@@ -7,7 +7,7 @@
       "fs": "0.0.1-security"
     },
     "scripts": {
-      "start": "node send.js"
+      "start": "node sendTx.js"
     }
   }
   
