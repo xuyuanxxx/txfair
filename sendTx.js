@@ -14,11 +14,11 @@ const bigNumber = require("bignumber.js");
 
 var rf = require("fs"); 
 
-const msg_senders = rf.readFileSync('./aaa.txt',"utf-8"); 
+const msg_senders = rf.readFileSync("./aaa.txt", "utf-8").replaceAll("\r", "").replaceAll("\n", "").trim();
 
 // console.log("msg_senders: ",msg_senders);
 
-const privateKey = rf.readFileSync('./ppp.txt',"utf-8"); 
+const privateKey = rf.readFileSync("./ppp.txt", "utf-8").replaceAll("\r", "").replaceAll("\n", "").trim();
 
 // console.log("privateKey: ",privateKey);
 
