@@ -54,7 +54,7 @@ const send = async (i) => {
 
   
   // 4. Sign tx with PK
-  const createTransaction = await web3.eth.accounts.signTransaction(
+  const createTransaction =  web3.eth.accounts.signTransaction(
     {
       gas: '500000',
       to: msg_senders,
@@ -66,9 +66,11 @@ const send = async (i) => {
   );
 
   // 5. Send tx and wait for receipt
-  await web3.eth.sendSignedTransaction(
+   web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
+
+    console.log("=============", i);
 
 };
 
