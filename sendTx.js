@@ -64,7 +64,7 @@ const send = async (i) => {
 let run = async() => {
     for (i = 0; i < 10000; i++) {
         try { 
-             send(i);
+             await send(i);
         }catch(err){
             console.log(err);
         }
