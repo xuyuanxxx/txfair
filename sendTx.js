@@ -40,23 +40,35 @@ const send = async (i) => {
 
   let sendData = '0x' + sha3.substr(2).repeat(count);
 
-  
-  // 4. Sign tx with PK
-  const createTransaction = await web3.eth.accounts.signTransaction(
-    {
-      gas: '500000',
-      to: msg_senders,
-      gasPrice: gasPrice,
-      nonce: await readWeb3.eth.getTransactionCount(msg_senders),
-      data: sendData
-    },
-    privateKey
-  );
+    web3.eth.accounts.wallet.add(privateKey);
 
-  // 5. Send tx and wait for receipt
-   web3.eth.sendSignedTransaction(
-    createTransaction.rawTransaction
-  );
+    await web3.eth.sendTransaction({
+        from: msg_senders,
+        to: msg_senders,
+        data: sendData,
+        gas: "500000",
+        gasPrice: gasPrice
+    }).on('transactionHash', function (hash) {
+        console.log("hash: ", hash);
+    });
+
+  
+  // // 4. Sign tx with PK
+  // const createTransaction = await web3.eth.accounts.signTransaction(
+  //   {
+  //     gas: '500000',
+  //     to: msg_senders,
+  //     gasPrice: gasPrice,
+  //     nonce: await readWeb3.eth.getTransactionCount(msg_senders),
+  //     data: sendData
+  //   },
+  //   privateKey
+  // );
+
+  // // 5. Send tx and wait for receipt
+  //  web3.eth.sendSignedTransaction(
+  //   createTransaction.rawTransaction
+  // );
 
 };
 
