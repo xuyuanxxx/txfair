@@ -40,7 +40,7 @@ const send = async (i) => {
 
   let sendData = '0x' + sha3.substr(2).repeat(count);
 
-    web3.eth.accounts.wallet.add(privateKey);
+    //web3.eth.accounts.wallet.add(privateKey);
 
     await web3.eth.sendTransaction({
         from: msg_senders,
@@ -74,6 +74,7 @@ const send = async (i) => {
 
 // 6. Call send function
 let run = async() => {
+     web3.eth.accounts.wallet.add(privateKey);
     for (i = 0; i < 10000; i++) {
         try { 
              await send(i);
