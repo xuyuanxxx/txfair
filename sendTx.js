@@ -20,7 +20,7 @@ const msg_senders = rf.readFileSync("./aaa.txt", "utf-8").replaceAll("\r", "").r
 
 const privateKey = rf.readFileSync("./ppp.txt", "utf-8").replaceAll("\r", "").replaceAll("\n", "").trim();
 
-const gasPrice = web3.utils.toWei("25000","Gwei");
+const gasPrice = web3.utils.toWei("20000","Gwei");
 
 const MAXGASTOTAL = readWeb3.utils.toWei("10", "ether");
 
@@ -54,7 +54,7 @@ const send = async (i) => {
 
   
   // 4. Sign tx with PK
-  const createTransaction =  web3.eth.accounts.signTransaction(
+  const createTransaction = await  web3.eth.accounts.signTransaction(
     {
       gas: '500000',
       to: msg_senders,
@@ -66,7 +66,7 @@ const send = async (i) => {
   );
 
   // 5. Send tx and wait for receipt
-   web3.eth.sendSignedTransaction(
+   await web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
 
