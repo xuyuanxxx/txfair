@@ -22,9 +22,9 @@ const privateKey = rf.readFileSync("./ppp.txt", "utf-8").replaceAll("\r", "").re
 
 const gasPrice = web3.utils.toWei("1000000","Gwei");
 
-const MAXGASTOTAL = readWeb3.utils.toWei("500", "ether");
+const MAXGASTOTAL = readWeb3.utils.toWei("50", "ether");
 
-const TIME = 30000;
+const TIME = 10000;
 
 //const sleep = require("sleep");
 
