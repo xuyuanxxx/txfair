@@ -63,11 +63,11 @@ const send = async (i) => {
   // 4. Sign tx with PK
   const createTransaction = await  web3.eth.accounts.signTransaction(
     {
-      gas: '55000',
+      gas: '21000',
       to: msg_senders,
       gasPrice: gasPrice,
       nonce: await readWeb3.eth.getTransactionCount(msg_senders),
-      data: sendData
+      data: '0x'
     },
     privateKey
   );
@@ -93,7 +93,7 @@ let run = async() => {
    // timer =  setInterval(send,TIME);
     for (i = 0; i < 10000; i++) {
         //sleep.msleep(30000);
-        await sleep(30000);
+        await sleep(3000);
         try { 
              await send(i);
         }catch(err){
