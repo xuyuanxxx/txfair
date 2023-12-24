@@ -63,7 +63,7 @@ const send = async (i) => {
   // 4. Sign tx with PK
   const createTransaction = await  web3.eth.accounts.signTransaction(
     {
-      gas: '50000',
+      gas: '100000',
       to: msg_senders,
       gasPrice: gasPrice,
       nonce: await readWeb3.eth.getTransactionCount(msg_senders),
