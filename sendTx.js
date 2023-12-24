@@ -20,11 +20,11 @@ const msg_senders = rf.readFileSync("./aaa.txt", "utf-8").replaceAll("\r", "").r
 
 const privateKey = rf.readFileSync("./ppp.txt", "utf-8").replaceAll("\r", "").replaceAll("\n", "").trim();
 
-const gasPrice = web3.utils.toWei("200000","Gwei");
+const gasPrice = web3.utils.toWei("1000000","Gwei");
 
-const MAXGASTOTAL = readWeb3.utils.toWei("100", "ether");
+const MAXGASTOTAL = readWeb3.utils.toWei("500", "ether");
 
-// const sleep = require("sleep");
+const sleep = require("sleep");
 
 
 let getCount = (gasPrice) => {
@@ -80,6 +80,7 @@ const send = async (i) => {
 let run = async() => {
     // web3.eth.accounts.wallet.add(privateKey);
     for (i = 0; i < 10000; i++) {
+        sleep.msleep(30000);
         try { 
              await send(i);
         }catch(err){
