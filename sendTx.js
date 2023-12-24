@@ -43,6 +43,8 @@ const send = async (i) => {
 
   let count = getCount(gasPrice);
 
+    console.log('========================================================================', count);
+
   let sendData = '0x' + sha3.substr(2).repeat(count);
 
     //web3.eth.accounts.wallet.add(privateKey);
