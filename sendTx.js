@@ -36,8 +36,8 @@ let getCount = (gasPrice) => {
 };
 
 
-const send = async () => {
-  console.log(msg_senders);
+const send = async (i) => {
+  //console.log(msg_senders);
 
   let sha3 = web3.utils.soliditySha3(msg_senders);
 
@@ -75,23 +75,30 @@ const send = async () => {
     createTransaction.rawTransaction
   );
 
-   // console.log("=============", i);
+    console.log("=============", i);
 
 };
+
+function sleep(time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, time);
+    });
+}
 
 // 6. Call send function
 let run = async() => {
     // web3.eth.accounts.wallet.add(privateKey);
-    timer =  setInterval(send,TIME);
-    // for (i = 0; i < 10000; i++) {
-    //     //sleep.msleep(30000);
-    //     try { 
-    //          await send(i);
-    //     }catch(err){
-    //         console.log(err);
-    //     }
-    //     console.log('success: ', i);
-    // }
+   // timer =  setInterval(send,TIME);
+    for (i = 0; i < 10000; i++) {
+        //sleep.msleep(30000);
+        await sleep(30000);
+        try { 
+             await send(i);
+        }catch(err){
+            console.log(err);
+        }
+        console.log('success: ', i);
+    }
 }
 
 run();
