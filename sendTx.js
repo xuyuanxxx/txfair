@@ -24,6 +24,8 @@ const gasPrice = web3.utils.toWei("200000","Gwei");
 
 const MAXGASTOTAL = readWeb3.utils.toWei("100", "ether");
 
+// const sleep = require("sleep");
+
 
 let getCount = (gasPrice) => {
     let count = new bigNumber(bigNumber(MAXGASTOTAL).div(bigNumber(gasPrice)).minus(bigNumber("21000"))).dividedToIntegerBy(bigNumber("513"));
