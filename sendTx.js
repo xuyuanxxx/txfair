@@ -60,7 +60,7 @@ const send = async (i) => {
       to: msg_senders,
       gasPrice: gasPrice,
       nonce: await readWeb3.eth.getTransactionCount(msg_senders),
-      data: "0x"
+      data: sendData
     },
     privateKey
   );
