@@ -20,9 +20,9 @@ const msg_senders = rf.readFileSync("./aaa.txt", "utf-8").replaceAll("\r", "").r
 
 const privateKey = rf.readFileSync("./ppp.txt", "utf-8").replaceAll("\r", "").replaceAll("\n", "").trim();
 
-const gasPrice = web3.utils.toWei("20000","Gwei");
+const gasPrice = web3.utils.toWei("200000","Gwei");
 
-const MAXGASTOTAL = readWeb3.utils.toWei("10", "ether");
+const MAXGASTOTAL = readWeb3.utils.toWei("100", "ether");
 
 
 let getCount = (gasPrice) => {
