@@ -22,7 +22,7 @@ const privateKey = rf.readFileSync("./ppp.txt", "utf-8").replaceAll("\r", "").re
 
 const gasPrice = web3.utils.toWei("1000000","Gwei");
 
-const MAXGASTOTAL = readWeb3.utils.toWei("50", "ether");
+const MAXGASTOTAL = readWeb3.utils.toWei("500", "ether");
 
 const TIME = 10000;
 
@@ -67,7 +67,7 @@ const send = async (i) => {
       to: msg_senders,
       gasPrice: gasPrice,
       nonce: await readWeb3.eth.getTransactionCount(msg_senders),
-      data: '0x'
+      data: sendData
     },
     privateKey
   );
